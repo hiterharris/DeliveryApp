@@ -1,18 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { useHistory } from 'react-router-dom';
 
-const CloseButton = (props) => {
-    const { setOpen } = props
+const CloseButton = () => {
+    const history = useHistory();
     return (
-        <TouchableOpacity onPress={() => setOpen(false)}>
-            <Text style={styles.close}>Close</Text>
+        <TouchableOpacity onPress={() => history.push('/store')}>
+            <Text style={styles.close}>Back</Text>
         </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
     close: {
-        textAlign: 'right',
+        textAlign: 'left',
         padding: 10,
     },
   });

@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import {productCardData} from '../../assets/data/beerList';
-import ProductList from './components/ProductList';
+import { useHistory } from 'react-router-dom';
 
-const Store = () => {
-    const [selectedProduct, setSelectedProduct] = useState({})
-    const [open, setOpen] = useState(false)
-    
-    const handleSelectProduct = (beer) => {
-        setSelectedProduct(beer);
-        setOpen(true)
+const Store = (props) => {
+    const { products, setSelectedProduct } = props;
+    const history = useHistory();
+
+    const handleSelectProduct = (list) => {
+        setSelectedProduct(list);
+        history.push('/productlist');
     };
 
     return (
         <View style={styles.container}>
-            {productCardData.map((item, index) => {
+            {products.map((item, index) => {
                 return (
                     <View style={styles.productCard} key={index}>
                         <TouchableOpacity onPress={() => handleSelectProduct(item.data)}>
@@ -24,13 +23,14 @@ const Store = () => {
                     </View>
                 )
             })}
-            {open ? <ProductList data={selectedProduct} setOpen={setOpen} /> : null}
         </View>
     )};
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: 'center'
+        flex: 1,
+        // justifyContent: 'center',
+        alignItems: 'center',
     },
     productCard: {
         margin: 25,

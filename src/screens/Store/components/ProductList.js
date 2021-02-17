@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
-import CloseButton from '../../../components/CloseButton';
+import CloseButton from '../../../components/CloseButton'
 
 const ProductList = (props) => {
-  const { data, setOpen } = props;
+  const { data } = props;
   return (
       <View style={styles.container}>
-        <CloseButton style={styles.closeButton} setOpen={setOpen} />
+        <CloseButton style={styles.closeButton} />
         {data.map((item, index) => {
             return (
                 <View style={styles.itemCard} key={index}>
@@ -24,11 +24,9 @@ const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    position: 'absolute',
-    height: windowHeight * .85,
-    width: windowWidth * .95,
-    borderWidth: 1,
-    borderRadius: 10,
+    height: windowHeight,
+    width: windowWidth,
+    marginTop: 100,
   },
   itemCard: {
     alignItems: 'center',
