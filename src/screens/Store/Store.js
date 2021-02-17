@@ -30,6 +30,8 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
     },
     productCard: {
         margin: 25,

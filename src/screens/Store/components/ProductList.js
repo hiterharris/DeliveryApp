@@ -7,16 +7,18 @@ const ProductList = (props) => {
   return (
       <View style={styles.container}>
         <CloseButton style={styles.closeButton} />
-        {data.map((item, index) => {
-            return (
-              <TouchableOpacity>
-                <View style={styles.itemCard} key={index}>
-                    <Text style={styles.title}>{item.title}</Text>
-                    <Image style={styles.image} source={item.image} />
-                </View>
-              </TouchableOpacity>
-            )
-        })}
+        <View style={styles.itemsList}>
+          {data.map((item, index) => {
+              return (
+                <TouchableOpacity>
+                  <View style={styles.itemCard} key={index}>
+                      <Text style={styles.title}>{item.title}</Text>
+                      <Image style={styles.image} source={item.image} />
+                  </View>
+                </TouchableOpacity>
+              )
+          })}
+        </View>
       </View>
 )};
 
@@ -28,13 +30,21 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: windowHeight,
     width: windowWidth,
+    marginTop: 10,
   },
-  itemCard: {
+  itemsList: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  },
+  itemCard: { 
     alignItems: 'center',
-    margin: 10,
+    marginLeft: 20,
+    marginRight: 20,
   },
   title: {
     textAlign: 'center',
+    fontSize: 18,
   },
   closeButton: {
       position: 'absolute',
