@@ -1,38 +1,48 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import products from '../../assets/data/products';
-import ProductDetails from './components/ProductDetails';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import {productCardData} from '../../assets/data/beerList';
+import ProductList from './components/ProductList';
 
-const ProductList = () => {
+const Store = () => {
     const [selectedProduct, setSelectedProduct] = useState({})
     const [open, setOpen] = useState(false)
-
-    const handleSelectProduct = (product) => {
-        setSelectedProduct(product);
+    
+    const handleSelectProduct = (beer) => {
+        setSelectedProduct(beer);
         setOpen(true)
     };
 
     return (
-        <View>
-            <Text style={styles.title}>Products</Text>
-            {products.map((product, index) => {
+        <View style={styles.container}>
+            {productCardData.map((item, index) => {
                 return (
-                    <View key={index}>
-                        <TouchableOpacity onPress={() => handleSelectProduct(product)}>
-                            <Text>{product.name}</Text>
+                    <View style={styles.productCard} key={index}>
+                        <TouchableOpacity onPress={() => handleSelectProduct(item.data)}>
+                            <Text style={styles.title}>{item.title}</Text>
+                            <Image style={styles.image} source={item.image} />
                         </TouchableOpacity>
                     </View>
                 )
             })}
-            {open ? <ProductDetails data={selectedProduct} setOpen={setOpen} /> : null}
+            {open ? <ProductList data={selectedProduct} setOpen={setOpen} /> : null}
         </View>
     )};
 
 const styles = StyleSheet.create({
-  title: {
-      textAlign: 'center',
-      fontSize: 32,
-  }
+    container: {
+        alignItems: 'center'
+    },
+    productCard: {
+        margin: 25,
+    },
+    title: {
+        textAlign: 'center',
+        fontSize: 32,
+    },
+    image: {
+        width: 100,
+        height: 100
+    }
 });
 
-export default ProductList;
+export default Store;
