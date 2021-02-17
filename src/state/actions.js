@@ -1,6 +1,6 @@
-export const addFriend = productIndex => (
+export const addProduct = item => (
     {
       type: 'ADD_PRODUCT',
-      payload: productIndex,
+      item,
     }
   );

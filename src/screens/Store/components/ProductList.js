@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
-import CloseButton from '../../../components/CloseButton'
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
+import CloseButton from '../../../components/CloseButton';
 
 const ProductList = (props) => {
   const { data } = props;
@@ -9,10 +9,12 @@ const ProductList = (props) => {
         <CloseButton style={styles.closeButton} />
         {data.map((item, index) => {
             return (
+              <TouchableOpacity>
                 <View style={styles.itemCard} key={index}>
                     <Text style={styles.title}>{item.title}</Text>
                     <Image style={styles.image} source={item.image} />
                 </View>
+              </TouchableOpacity>
             )
         })}
       </View>
@@ -26,7 +28,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: windowHeight,
     width: windowWidth,
-    marginTop: 100,
   },
   itemCard: {
     alignItems: 'center',
