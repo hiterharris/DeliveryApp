@@ -19,11 +19,6 @@ const Router = () => {
     setCart([...cart, item]);
   }
 
-  useEffect(() => {
-    console.log('selectedItem: ', selectedItem);
-    console.log('cart: ', cart);
-  }, [cart, selectedItem]);
-
   console.log('selectedItem: ', selectedItem);
   return (
     <NativeRouter>
@@ -40,7 +35,6 @@ const Router = () => {
 const styles = StyleSheet.create({
   container: {
     marginTop: 40,
-    // padding: 10,
   },
 });
 
