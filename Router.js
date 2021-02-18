@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useState } from 'react';
+import { View } from 'react-native';
+import { styles } from './RouterCSS';
 import Home from './src/screens/Home/Home';
 import Store from './src/screens/Store/Store';
 import Cart from './src/screens/Cart/Cart';
@@ -19,23 +20,16 @@ const Router = () => {
     setCart([...cart, item]);
   }
 
-  console.log('selectedItem: ', selectedItem);
   return (
     <NativeRouter>
-    <View style={styles.container}>
-      <Nav />
-      <Route exact path="/" component={Home} />
-      <Route path="/store"render={() => (<Store products={products} setSelectedProduct={setSelectedProduct} />)}/>
-      <Route exact path="/productlist" render={() => (<ProductList data={selectedProduct} addItem={addItem} />)}/>
-      <Route exact path="/cart" render={() => (<Cart data={cart} />)}/>
-    </View>
+      <View style={styles.container}>
+        <Nav />
+        <Route exact path="/" component={Home} />
+        <Route path="/store"render={() => (<Store products={products} setSelectedProduct={setSelectedProduct} />)}/>
+        <Route exact path="/productlist" render={() => (<ProductList data={selectedProduct} addItem={addItem} />)}/>
+        <Route exact path="/cart" render={() => (<Cart data={cart} />)}/>
+      </View>
   </NativeRouter>
 )};
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 40,
-  },
-});
 
 export default Router;

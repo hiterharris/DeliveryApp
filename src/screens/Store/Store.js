@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { styles } from './StoreCSS';
 import { useHistory } from 'react-router-dom';
 
 const Store = (props) => {
@@ -25,25 +26,5 @@ const Store = (props) => {
             })}
         </View>
     )};
-
-const styles = StyleSheet.create({
-    container: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-    },
-    productCard: {
-        margin: 25,
-    },
-    title: {
-        textAlign: 'center',
-        fontSize: 32,
-    },
-    image: {
-        width: 100,
-        height: 100
-    }
-});
 
 export default Store;

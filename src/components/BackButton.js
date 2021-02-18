@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
+import { styles } from './BackButtonCSS';
 import { useHistory } from 'react-router-dom';
 
-const CloseButton = () => {
+const BackButton = () => {
     const history = useHistory();
     return (
         <TouchableOpacity onPress={() => history.push('/store')}>
@@ -11,11 +12,4 @@ const CloseButton = () => {
     )
 }
 
-const styles = StyleSheet.create({
-    close: {
-        textAlign: 'left',
-        padding: 10,
-    },
-  });
-
-export default CloseButton;
+export default BackButton;

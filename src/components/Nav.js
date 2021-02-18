@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import { styles } from './NavCSS';
 import { Link } from 'react-router-native';
 
 const Nav = () => {
@@ -16,17 +17,5 @@ const Nav = () => {
         </Link>
     </View>
 )};
-
-const styles = StyleSheet.create({
-    nav: {
-        flexDirection: "row",
-        justifyContent: "space-around"
-    },
-    navItem: {
-        flex: 1,
-        alignItems: "center",
-        padding: 10
-    },
-});
 
 export default Nav;
