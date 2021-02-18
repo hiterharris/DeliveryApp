@@ -3,14 +3,14 @@ import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'rea
 import CloseButton from '../../../components/CloseButton';
 
 const ProductList = (props) => {
-  const { data } = props;
+  const { data, addItem } = props;
   return (
       <View style={styles.container}>
         <CloseButton style={styles.closeButton} />
         <View style={styles.itemsList}>
           {data.map((item, index) => {
               return (
-                <TouchableOpacity>
+                <TouchableOpacity key={index} onPress={() => addItem(item)}>
                   <View style={styles.itemCard} key={index}>
                       <Text style={styles.title}>{item.title}</Text>
                       <Image style={styles.image} source={item.image} />
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 100
-}
+  }
 });
 
 export default ProductList;
