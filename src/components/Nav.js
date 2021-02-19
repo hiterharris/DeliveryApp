@@ -10,7 +10,7 @@ const Nav = () => {
             <Text>Home</Text>
         </Link>
         <Link to="/store" underlayColor="#f0f4f7" style={styles.navItem}>
-            <Text>Products</Text>
+            <Text>Store</Text>
         </Link>
         <Link to="/cart" underlayColor="#f0f4f7" style={styles.navItem}>
             <Text>Cart</Text>

@@ -14,7 +14,7 @@ const ProductList = (props) => {
               <TouchableOpacity key={index} onPress={() => addItem(item)}>
                 <View style={styles.itemCard} key={index}>
                     <Text style={styles.title}>{item.title}</Text>
-                    <Image style={styles.image} source={item.image} />
+                    <Image style={styles.image} source={{uri: item.image}} />
                 </View>
               </TouchableOpacity>
             )
