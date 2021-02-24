@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { Cart, Home, Store, ProductList } from './src/screens';
 import { NativeRouter, Route } from 'react-router-native';
@@ -15,21 +15,9 @@ const Router = () => {
       <View style={{ marginTop: 40}}>
         <Nav />
         <Route exact path="/" component={Home} />
-        <Route path="/store"render={() => (
-          <Suspense fallback={<Text>Loading...</Text>}>
-            <Store products={products} setSelectedProduct={setSelectedProduct} />
-          </Suspense>
-        )}/>
-        <Route exact path="/productlist" render={() => (
-          <Suspense fallback={<Text>Loading...</Text>}>
-            <ProductList title={selectedProduct.title} cart={cart} setCart={setCart} />
-          </Suspense>
-        )}/>
-        <Route exact path="/cart" render={() => (
-          <Suspense fallback={<Text>Loading...</Text>}>
-            <Cart cart={cart} setCart={setCart} />
-          </Suspense>
-        )}/>
+        <Route path="/store"render={() => (<Store products={products} setSelectedProduct={setSelectedProduct} />)}/>
+        <Route exact path="/productlist" render={() => (<ProductList title={selectedProduct.title} cart={cart} setCart={setCart} />)}/>
+        <Route exact path="/cart" render={() => (<Cart cart={cart} setCart={setCart} />)}/>
       </View>
   </NativeRouter>
 )};
