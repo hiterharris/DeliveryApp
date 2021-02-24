@@ -1,14 +1,14 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, Button } from 'react-native';
 import { styles } from './CartCSS';
 
 const Cart = (props) => {
-    const { data } = props;
+    const { cart, setCart} = props;
     return (
         <View style={styles.container}>
             <Text style={styles.header}>My Cart</Text>
             <View style={styles.itemsList}>
-                {data.map((item, index) => {
+                {cart.map((item, index) => {
                     return (
                         <View key={index} style={styles.itemCard} key={index}>
                             <Text style={styles.title}>{item.title}</Text>
@@ -17,6 +17,7 @@ const Cart = (props) => {
                     )
                 })}
             </View>
+            <Button title='Clear Cart' onPress={() => setCart([])} />
         </View>
     )};
 

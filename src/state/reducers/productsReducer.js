@@ -1,7 +1,5 @@
-import { productCardData } from '../../assets/data/products';
-
 const INITIAL_STATE = {
-    productCardData,
+    products: [],
 };
 
 const productsReducer = (state = INITIAL_STATE, action) => {

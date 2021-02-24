@@ -70,5 +70,5 @@ const beerList = [
     },
   ];
   
-  module.exports = {beerList, wineList, tobaccoList, vapeList, productCardData};
+  module.exports = [beerList, wineList, tobaccoList, vapeList, productCardData];
   
