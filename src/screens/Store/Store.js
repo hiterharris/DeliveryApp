@@ -2,9 +2,11 @@ import React from 'react';
 import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { styles } from './StoreCSS';
 import { useHistory } from 'react-router-dom';
+import { useData } from '../../hooks/useData';
 
 const Store = (props) => {
-    const { products, setSelectedProduct } = props;
+    const { setSelectedProduct } = props;
+    const { products } = useData();
     const history = useHistory();
 
     const handleSelectProduct = (item) => {

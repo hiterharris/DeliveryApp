@@ -7,7 +7,11 @@ import { useData } from '../../../hooks/useData';
 const ProductList = (props) => {
   const { title, cart, setCart } = props;
   const { beer, wine, tobacco, vape } = useData();
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
+
+  const addItem = (item) => {
+    setCart([...cart, item])
+  }
 
   useEffect(() => {
     if (title === 'Beer') setData(beer)
@@ -15,10 +19,6 @@ const ProductList = (props) => {
     if (title === 'Tobacco') setData(tobacco)
     if (title === 'Vapes') setData(vape)
   }, [data])
-
-  const addItem = (item) => {
-    setCart([...cart, item])
-  }
 
   return (
     <View style={styles.container}>
